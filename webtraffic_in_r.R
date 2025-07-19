@@ -29,7 +29,7 @@ library(dplyr)
 
 daily_views <- df %>%
   group_by(date) %>%
-  summarise(page_views = sum(page_views))  # or use mean(page_views)
+  summarise(page_views = sum(page_views)) 
 
 daily_views
 
@@ -53,10 +53,8 @@ numeric_df <- df[, sapply(df, is.numeric)]
 # Compute correlation
 cor_matrix <- cor(numeric_df, use = "complete.obs")
 
-# Plot
-install.packages("corrplot")   # if not installed
-library(corrplot)
-corrplot(cor_matrix, method = "number",method = "colour", type = "upper")
+corrplot(cor_matrix, method = "color", type = "upper")
+
 
 table(df$traffic_source)
 barplot(table(df$traffic_source), main = "Traffic Source Distribution", col = "skyblue")
